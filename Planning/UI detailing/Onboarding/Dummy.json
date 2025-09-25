@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Signup": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "password": {
+          "type": "string",
+          "minLength": 8
+        },
+        "mobile": {
+          "type": "string",
+          "pattern": "^[0-9+\\- ]{7,20}$"
+        }
+      },
+      "required": ["name", "email", "password"],
+      "additionalProperties": false
+    },
+    "BusinessTypeSelection": {
+      "type": "object",
+      "properties": {
+        "business_type": {
+          "type": "string",
+          "enum": [
+            "retail",
+            "services",
+            "restaurant",
+            "manufacturing",
+            "others"
+          ]
+        }
+      },
+      "required": ["business_type"],
+      "additionalProperties": false
+    },
+    "BusinessSetup": {
+      "type": "object",
+      "properties": {
+        "business_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "gst_vat_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "country": {
+          "type": "string",
+          "minLength": 2
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        },
+        "logo_file": {
+          "type": "string",
+          "format": "uri"
+        },
+        "tax_enabled": {
+          "type": "boolean"
+        },
+        "tax_type": {
+          "type": "string",
+          "enum": ["inclusive", "exclusive"]
+        },
+        "default_tax_rate": {
+          "type": "number",
+          "minimum": 0
+        },
+        "invoice_prefix": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stock_tracking": {
+          "type": "boolean"
+        },
+        "create_default_categories": {
+          "type": "boolean"
+        },
+        "initialize_tax_rates": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "business_name",
+        "country",
+        "currency",
+        "timezone",
+        "tax_enabled",
+        "invoice_prefix",
+        "stock_tracking"
+      ],
+      "allOf": [
+        {
+          "if": {
+            "properties": { "tax_enabled": { "const": true } }
+          },
+          "then": {
+            "required": ["tax_type", "default_tax_rate"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "signup": { "$ref": "#/definitions/Signup" },
+    "business_type": { "$ref": "#/definitions/BusinessTypeSelection" },
+    "setup": { "$ref": "#/definitions/BusinessSetup" }
+  },
+  "required": ["signup", "business_type", "setup"],
+  "additionalProperties": false
+}
