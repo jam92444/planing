@@ -1,0 +1,36 @@
+{
+  "new_item": {
+    "name": "Hair Spa",
+    "type": "service",
+    "price": 799,
+    "tax_rate": 18,
+    "unit": "hour",
+    "category": "Salon Services"
+  },
+  "retail_item": {
+    "name": "Shampoo 200ml",
+    "type": "product",
+    "price": 150,
+    "tax_rate": 18,
+    "unit": "pcs",
+    "sku": "SH-200",
+    "stock_quantity": 50,
+    "category": "Personal Care"
+  },
+  "edit_item": {
+    "id": "item_123",
+    "price": 180,
+    "tax_rate": 18,
+    "category": "Haircare"
+  },
+  "item_table_row": {
+    "id": "item_123",
+    "name": "Hair Cut",
+    "type": "service",
+    "price": 300,
+    "tax_rate": 18,
+    "unit": "hour",
+    "category": "Salon",
+    "status": "active"
+  }
+}

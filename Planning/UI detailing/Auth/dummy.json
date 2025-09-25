@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Signup": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "password": { "type": "string", "minLength": 8 }
+      },
+      "required": ["name", "email", "password"],
+      "additionalProperties": false
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "password": { "type": "string", "minLength": 1 }
+      },
+      "required": ["email", "password"],
+      "additionalProperties": false
+    },
+    "InviteUser": {
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "role": {
+          "type": "string",
+          "enum": ["owner", "admin", "cashier", "viewer"]
+        }
+      },
+      "required": ["email", "role"],
+      "additionalProperties": false
+    },
+    "ChangeUserRole": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["owner", "admin", "cashier", "viewer"]
+        }
+      },
+      "required": ["role"],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "signup": { "$ref": "#/definitions/Signup" },
+    "login": { "$ref": "#/definitions/Login" },
+    "invite_user": { "$ref": "#/definitions/InviteUser" },
+    "change_role": { "$ref": "#/definitions/ChangeUserRole" }
+  },
+  "required": ["signup", "login"],
+  "additionalProperties": false
+}

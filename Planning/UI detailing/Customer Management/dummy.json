@@ -1,0 +1,45 @@
+{
+  "new_customer": {
+    "name": "Rahul Sharma",
+    "phone": "9876543210",
+    "email": "rahul@example.com",
+    "gst_number": "29ABCDE1234F2Z5",
+    "address": "Bangalore, India",
+    "note": "VIP customer"
+  },
+  "edit_customer": {
+    "id": "cust_123",
+    "name": "Rahul Sharma",
+    "phone": "9876543210",
+    "email": "rahul@example.com",
+    "gst_number": "29ABCDE1234F2Z5",
+    "address": "New address here",
+    "note": "Updated notes"
+  },
+  "customer_list_row": {
+    "id": "cust_123",
+    "name": "Rahul Sharma",
+    "phone": "9876543210",
+    "email": "rahul@example.com",
+    "total_spend": 5283.5,
+    "last_invoice_date": "2025-09-20",
+    "status": "active"
+  },
+  "customer_invoice_summary": {
+    "customer_id": "cust_123",
+    "invoices": [
+      {
+        "invoice_id": "INV-00123",
+        "date": "2025-09-20",
+        "total": 1200.0
+      },
+      {
+        "invoice_id": "INV-00110",
+        "date": "2025-08-15",
+        "total": 2400.0
+      }
+    ],
+    "total_spend": 5283.5,
+    "last_invoice_date": "2025-09-20"
+  }
+}

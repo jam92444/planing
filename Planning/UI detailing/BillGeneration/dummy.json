@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "InvoiceItem": {
+      "type": "object",
+      "properties": {
+        "item_id": { "type": "string" },
+        "quantity": { "type": "number", "minimum": 1 },
+        "price": { "type": "number", "minimum": 0 },
+        "tax_rate": { "type": "number", "minimum": 0 }
+      },
+      "required": ["item_id", "quantity", "price"],
+      "additionalProperties": false
+    },
+    "Discount": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["flat", "percentage"] },
+        "value": { "type": "number", "minimum": 0 }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    },
+    "NewInvoice": {
+      "type": "object",
+      "properties": {
+        "customer_id": { "type": "string" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/InvoiceItem" },
+          "minItems": 1
+        },
+        "tax_type": { "type": "string", "enum": ["inclusive", "exclusive"] },
+        "discount": { "$ref": "#/definitions/Discount" },
+        "payment_method": {
+          "type": "string",
+          "enum": ["cash", "card", "upi", "credit"]
+        },
+        "notes": { "type": "string" }
+      },
+      "required": ["items", "tax_type", "payment_method"],
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "create_invoice": { "$ref": "#/definitions/NewInvoice" }
+  }
+}

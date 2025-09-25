@@ -1,0 +1,43 @@
+{
+  "business_info": {
+    "business_name": "Fresh Cut Salon",
+    "address": "123 MG Road, Bangalore, India",
+    "contact_phone": "+91-9876543210",
+    "email": "info@freshcut.com",
+    "gstin": "29ABCDE1234F2Z5",
+    "timezone": "Asia/Kolkata"
+  },
+  "billing_settings": {
+    "invoice_prefix": "FCS-",
+    "invoice_suffix": "/2025",
+    "starting_invoice_number": 1001,
+    "default_tax_rate": 18,
+    "currency_code": "INR"
+  },
+  "branding": {
+    "logo_url": "https://cdn.app.com/logos/freshcut.png",
+    "primary_color": "#3f51b5",
+    "secondary_color": "#f50057",
+    "invoice_footer_message": "Thank you for choosing Fresh Cut!"
+  },
+  "payment_options": {
+    "accepted_methods": ["Cash", "UPI", "Credit Card"],
+    "default_method": "UPI"
+  },
+  "users": [
+    {
+      "id": "user_001",
+      "name": "Sakshi Patel",
+      "email": "sakshi@freshcut.com",
+      "role": "Owner",
+      "status": "active"
+    },
+    {
+      "id": "user_002",
+      "name": "Ravi Mehta",
+      "email": "ravi@freshcut.com",
+      "role": "Admin",
+      "status": "active"
+    }
+  ]
+}
